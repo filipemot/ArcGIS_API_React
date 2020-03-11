@@ -1,1 +1,0 @@
-# ArcGIS_Javascript_mapatemporeal_signalr
