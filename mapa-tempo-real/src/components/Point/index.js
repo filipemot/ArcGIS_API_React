@@ -34,13 +34,11 @@ const Point = (props) => {
                 symbol: fillSymbol
             });
             setGraphic(graphic);
-            props.view.graphics.add(graphic);
+            props.graphics.add(graphic);
         }).catch((err) => console.error(err));
 
-        return function cleanup() {
-            props.view.graphics.remove(graphic);
-        };
-    }, []);
+
+    }, [graphic, props.graphics]);
 
     return null;
 
