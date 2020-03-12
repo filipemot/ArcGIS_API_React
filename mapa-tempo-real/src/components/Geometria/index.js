@@ -11,9 +11,7 @@ export class Geometria extends React.Component {
     }
 
     onViewLoaded = (view) => {
-      // lazy load the required ArcGIS API for JavaScript modules and CSS
         loadModules(['esri/Graphic']).then(([Graphic]) => {
-            // Create a polygon geometry
             const polygon = {
                 type: "polygon", // autocasts as new Polygon()
                 rings: [
