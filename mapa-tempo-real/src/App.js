@@ -1,15 +1,14 @@
 import React from 'react';
 import './App.css';
-import WebMapView, {view} from './components/WebMapView'
-import Point from './components/Point'
+import WebMapView from './components/WebMapView'
+
 
 const App = () => {
   return (
     <WebMapView> 
-    </WebMapView>,
-    document.getElementById('root'),
+         
+    </WebMapView>
 
-<Point props={view}></Point>
   );
 }
 

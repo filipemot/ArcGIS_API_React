@@ -1,11 +1,17 @@
-import { useState, useEffect } from 'react';
+import React from 'react';
 import { loadModules } from 'esri-loader';
 
-const Point = (props) => {
 
-    const [graphic, setGraphic] = useState(null);
-    useEffect(() => {
 
+export class Geometria extends React.Component {
+    componentDidMount() {
+        if(this.props.view){
+            this.props.view.when(this.onViewLoaded);
+        }
+    }
+
+    onViewLoaded = (view) => {
+      // lazy load the required ArcGIS API for JavaScript modules and CSS
         loadModules(['esri/Graphic']).then(([Graphic]) => {
             // Create a polygon geometry
             const polygon = {
@@ -33,15 +39,16 @@ const Point = (props) => {
                 geometry: polygon,
                 symbol: fillSymbol
             });
-            setGraphic(graphic);
-            props.graphics.add(graphic);
+            //setGraphic(graphic);
+            view.graphics.add(graphic);
         }).catch((err) => console.error(err));
-
-
-    }, [graphic, props.graphics]);
-
-    return null;
-
-}
-
-export default Point;
+    }
+  
+    componentWillUnmount() {
+    }
+  
+    render() {
+      return (<div></div>      );
+    }
+  }
+  export default Geometria;
